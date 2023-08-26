@@ -14,9 +14,10 @@ const AttendanceForm = ({ students, markAttendance }) => {
   };
 
   return (
-    <div>
-      <h2>Mark Your Attendance</h2>
-      <select value={selectedStudent} onChange={handleStudentChange}>
+    <div className='attendance-form'>
+      <h2 className='header'>Mark Your Attendance</h2>
+      <div className='select-container'>
+      <select className='student-select' value={selectedStudent} onChange={handleStudentChange}>
         <option value="">Select Student</option>
         {students.map((student) => (
           <option key={student.id} value={student.id}>
@@ -24,7 +25,9 @@ const AttendanceForm = ({ students, markAttendance }) => {
           </option>
         ))}
       </select>
-      <button onClick={handleMarkAttendance}>Mark Attendance</button>
+      </div>
+
+      <button className='mark-attendance' onClick={handleMarkAttendance}>Mark Attendance</button>
     </div>
   );
 };
