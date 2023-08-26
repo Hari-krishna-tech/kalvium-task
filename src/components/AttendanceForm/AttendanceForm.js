@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./AttendanceForm.css"
 
 const AttendanceForm = ({ students, markAttendance }) => {
   const [selectedStudent, setSelectedStudent] = useState('');
