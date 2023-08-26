@@ -3,13 +3,27 @@ import "./AttendanceForm.css"
 
 const AttendanceForm = ({ students, markAttendance }) => {
   const [selectedStudent, setSelectedStudent] = useState('');
+  const [present, setPresent] = useState(false);
 
   const handleStudentChange = (event) => {
     setSelectedStudent(event.target.value);
+    if(event.target.value === ""){
+      setPresent(false);
+      return;
+    }
+    for(var i=0; i<students.length; i++){
+      if(students[i].id === parseInt(selectedStudent)){
+        console.log(students[i].attendance)
+        setPresent(students[i].attendance);
+        break;
+      }
+    }
+    
   };
 
   const handleMarkAttendance = () => {
     markAttendance(selectedStudent);
+    
     setSelectedStudent('');
   };
 
@@ -27,7 +41,7 @@ const AttendanceForm = ({ students, markAttendance }) => {
       </select>
       </div>
 
-      <button className='mark-attendance' onClick={handleMarkAttendance}>Mark Attendance</button>
+      <button className='mark-attendance' onClick={handleMarkAttendance}>Mark {present?"Absent":"Present"}</button>
     </div>
   );
 };

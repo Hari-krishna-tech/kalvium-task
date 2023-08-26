@@ -15,21 +15,24 @@ const App = () => {
   const [students, setStudents] = useState(initialStudents);
 
   const markAttendance = (studentId) => {
-    const updatedStudents = students.map((student) =>
-      student.id === parseInt(studentId)
-        ? { ...student, attendance: true }
-        : student
-    );
+    const updatedStudents = students.map((student) => {
+      if (student.id === parseInt(studentId)) {
+        console.log(student.id)
+        return { ...student, attendance: !student.attendance }
+      }
+      return {...student};
+    });
     setStudents(updatedStudents);
+    console.log(students);
   };
-
+  console.log("rerendered");
   return (
     <div className="app">
       <Nav />
       <Routes>
         <Route path="/" element={<AttendanceForm students={students} markAttendance={markAttendance}/>} /> 
 
-        <Route path="/studentlist" element={<StudentList students={students}/>} />
+        <Route path="/studentlist" element={<StudentList students={students} markAttendance={markAttendance}/>} />
 
         
       </Routes>

@@ -1,0 +1,61 @@
+.student-card {
+    height: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "name id attendance";
+
+    margin: 5px;
+
+}
+
+.present {
+
+    background-color: #74c576;
+    color: white;
+
+}
+ .absent {
+
+    background-color: #ed7870;
+    color: white;
+}
+
+.present:hover {
+    background-color: #46a049;
+}
+
+.absent:hover {
+    background-color: #e53935;
+}
+
+.student-card .name {
+    grid-area: name;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+
+.student-card .rollno {
+    grid-area: id;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.student-card .attendance {
+    grid-area: attendance;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
