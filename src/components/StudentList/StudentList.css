@@ -1,0 +1,13 @@
+.student-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.student-list .student-list-header {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}

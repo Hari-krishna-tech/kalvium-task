@@ -5,6 +5,8 @@ import AttendanceForm from './components/AttendanceForm/AttendanceForm';
 import Nav from './components/Nav/Nav.jsx';
 import {Routes, Route} from 'react-router-dom';
 
+import AddStudent from './components/AddStudent/AddStudent.js';
+
 const App = () => {
   const initialStudents = [
     { id: 1, name: 'John Doe', rollNumber: 'A101' , attendance: false},
@@ -34,6 +36,7 @@ const App = () => {
 
         <Route path="/studentlist" element={<StudentList students={students} markAttendance={markAttendance}/>} />
 
+        <Route path="/addstudent" element={<AddStudent />} />
         
       </Routes>
       

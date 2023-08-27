@@ -6,25 +6,27 @@ const AttendanceForm = ({ students, markAttendance }) => {
   const [present, setPresent] = useState(false);
 
   const handleStudentChange = (event) => {
-    setSelectedStudent(event.target.value);
+    
     if(event.target.value === ""){
-      setPresent(false);
+      // setPresent(false);
       return;
     }
-    for(var i=0; i<students.length; i++){
-      if(students[i].id === parseInt(selectedStudent)){
-        console.log(students[i].attendance)
+   // console.log(event.target.value)
+    for(let i=0;i<students.length;i++){
+      if(students[i].id === parseInt(event.target.value)){
+       // console.log(students[i].attendance)
         setPresent(students[i].attendance);
         break;
       }
     }
+    setSelectedStudent(event.target.value);
     
   };
 
   const handleMarkAttendance = () => {
     markAttendance(selectedStudent);
-    
     setSelectedStudent('');
+    setPresent(false);
   };
 
   return (
