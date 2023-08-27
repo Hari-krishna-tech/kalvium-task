@@ -16,6 +16,13 @@ const App = () => {
 
   const [students, setStudents] = useState(initialStudents);
 
+  const addStudent = (student) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const attendance = false;
+    const newStudent = { id, ...student, attendance };
+    setStudents([...students, newStudent]);
+  }
+
   const markAttendance = (studentId) => {
     const updatedStudents = students.map((student) => {
       if (student.id === parseInt(studentId)) {
@@ -27,7 +34,7 @@ const App = () => {
     setStudents(updatedStudents);
     console.log(students);
   };
-  console.log("rerendered");
+
   return (
     <div className="app">
       <Nav />
@@ -36,7 +43,7 @@ const App = () => {
 
         <Route path="/studentlist" element={<StudentList students={students} markAttendance={markAttendance}/>} />
 
-        <Route path="/addstudent" element={<AddStudent />} />
+        <Route path="/addstudent" element={<AddStudent addStudent={addStudent}/>} />
         
       </Routes>
       
